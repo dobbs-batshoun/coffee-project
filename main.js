@@ -2,6 +2,7 @@
 
 function renderCoffee(coffee) {
     var html = '<div class="d-flex justify-content-start btn-outline-dark m-2">';
+    html += '<div class="d-none" >' + coffee.id + '</div>';
     html += '<div class=" p-2 bd-highlight text-uppercase font-weight-bold">' + coffee.name + '</div>';
     html += '<div class="p-2 bd-highlight font-italic">' + coffee.roast + '</div>';
     html += '</div>';
@@ -24,6 +25,7 @@ function updateCoffees(e) {
     coffees.forEach(function(coffee) {
         if (coffee.roast === selectedRoast) {
             filteredCoffees.push(coffee);
+            filteredCoffees.sort(filteredCoffees.id);
         }
     });
     tbody.innerHTML = renderCoffees(filteredCoffees);
@@ -48,7 +50,7 @@ var coffees = [
 ];
 
 var tbody = document.querySelector('#coffees');
-var submitButton = document.querySelector('#submit');
+var submitButton = document.querySelector('.test');
 var roastSelection = document.querySelector('#roast-selection');
 
 tbody.innerHTML = renderCoffees(coffees);
