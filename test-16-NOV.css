@@ -1,0 +1,32 @@
+.box {
+    width: 150px;
+    height: 150px;
+    border: 1px solid black;
+    text-align: center;
+    font-family: verdana;
+    font-size: 1em;
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    flex-direction: column;
+}
+
+.card-container {
+    display: flex;
+    margin: 8px;
+}
+
+.container>DIV {
+    margin: 4px;
+}
+
+.hidden {
+    display: none
+}
+
+#select-roast {
+    width: 300px;
+    height: auto;
+    border: 1px solid black;
+    padding-bottom: 2em;
+}
