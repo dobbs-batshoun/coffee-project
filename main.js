@@ -30,6 +30,17 @@ function updateCoffees(e) {
     tbody.innerHTML = renderCoffees(filteredCoffees);
 }
 
+function showcoffee (e) {
+    // e.preventDefault(); // don't submit the form, we just want to update the data
+    var selectedRoast = typename.value;
+    var filteredCoffees = [];
+    coffees.forEach(function (coffee) {
+        if (coffee.name.charAt(0) === selectedRoast.charAt(0)) {
+            filteredCoffees.push(coffee);
+        }
+    });
+    tbody.innerHTML = renderCoffees(filteredCoffees);
+}
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 var coffees = [
     {id: 1, name: 'Light City', roast: 'light'},
@@ -49,9 +60,10 @@ var coffees = [
 ];
 
 var tbody = document.querySelector('#coffees');
-var submitButton = document.querySelector('.test');
+var dropdown = document.querySelector('.test');
 var roastSelection = document.querySelector('#roast-selection');
-
+var typename = document.querySelector('.coffee-name')
 tbody.innerHTML = renderCoffees(coffees);
 
-submitButton.addEventListener('click', updateCoffees);
+dropdown.addEventListener('change', updateCoffees);
+typename.addEventListener('input', showcoffee)
