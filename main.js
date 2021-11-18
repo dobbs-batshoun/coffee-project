@@ -19,42 +19,49 @@ function renderCoffees(coffees) {
 }
 
 function updateCoffees(e) {
-    e.preventDefault(); // don't submit the form, we just want to update the data
+    // e.preventDefault(); // don't submit the form, we just want to update the data
     var selectedRoast = roastSelection.value;
     var filteredCoffees = [];
-    coffees.forEach(function (coffee) {
-        if (coffee.roast === selectedRoast) {
-            filteredCoffees.push(coffee);
-        }else if (selectedRoast === "all"){
-            filteredCoffees.push(coffee);
-        }
-    });
-    tbody.innerHTML = renderCoffees(filteredCoffees);
-}
-
-function showcoffee (e) {
-    e.preventDefault(); // don't submit the form, we just want to update the data
-    var selectedRoast = typename.value;
+    var selectedName = typename.value;
     var filterCoffees = [];
-    var output = selectedRoast.toLowerCase()
+    var output = selectedName.toLowerCase()
 
-    // coffees.forEach(function (coffee) {
-    //     if ((coffee.name.toLowerCase()).indexOf(output) === 0 ) {
-    //         filterCoffees.push(coffee);
-    //     }
-    //
-    // });
     for (let i = 0; i < coffees.length; i++) {
+        if (coffees[i].roast === selectedRoast) {
+            filteredCoffees.push(coffees[i]);
+            // console.log(filteredCoffees);
+        }else if (selectedRoast === "all"){
+            filteredCoffees.push(coffees[i]);
+            // console.log(filteredCoffees);
+        }
+
         if(coffees[i].name.toLowerCase().includes(output)) {
-            console.log(coffees[i].name);
+            // console.log(coffees[i].name);
             filterCoffees.push(coffees[i]);
         }
+
     }
+    tbody.innerHTML = renderCoffees(filteredCoffees);
     tbody.innerHTML = renderCoffees(filterCoffees);
-
-
-
 }
+
+
+// function showcoffee (e) {
+//     e.preventDefault(); // don't submit the form, we just want to update the data
+//     var selectedRoast = typename.value;
+//     var filterCoffees = [];
+//     var output = selectedRoast.toLowerCase()
+//
+//     for (let i = 0; i < coffees.length; i++) {
+//         if(coffees[i].name.toLowerCase().includes(output)) {
+//             console.log(coffees[i].name);
+//             filterCoffees.push(coffees[i]);
+//         }
+//     }
+//
+//
+//     tbody.innerHTML = renderCoffees(filterCoffees);
+// }
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 var coffees = [
@@ -81,4 +88,4 @@ var typename = document.querySelector('.coffee-name')
 tbody.innerHTML = renderCoffees(coffees);
 
 dropdown.addEventListener('change', updateCoffees);
-typename.addEventListener('input', showcoffee)
+typename.addEventListener('input', updateCoffees)
