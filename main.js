@@ -1,5 +1,5 @@
 "use strict"
-
+//renders coffee as div
 function renderCoffee(coffee) {
     var html = '<div class="d-flex justify-content-start btn-outline-dark m-2">';
     html += '<div class="d-none" >' + coffee.id + '</div>';
@@ -9,7 +9,7 @@ function renderCoffee(coffee) {
 
     return html;
 }
-
+//renders coffee
 function renderCoffees(coffees) {
     var html = '';
     for (var i = 0; i < coffees.length;  i++) {
@@ -18,7 +18,7 @@ function renderCoffees(coffees) {
     return html;
 }
 
-
+//updates coffee by roast
 function updateCoffees(e) {
     // e.preventDefault(); // don't submit the form, we just want to update the data
     var selectedRoast = roastSelection.value;
@@ -42,7 +42,7 @@ function updateCoffees(e) {
     tbody.innerHTML = renderCoffees(filteredCoffees);
 }
 
-
+//updates coffee by name
 function showcoffee (coffees) {
 
     var selectedRoast = typename.value;
@@ -63,6 +63,7 @@ function showcoffee (coffees) {
     return filterCoffees;
 }
 
+//adds coffee
 function addCoffee(e) {
     e.preventDefault()
     var newRoast = addRoast.value;
@@ -77,7 +78,7 @@ function addCoffee(e) {
     var addName = document.querySelector('.add-name');
     submitCoffee.addEventListener('click', addCoffee);
 
-
+//coffee object
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 var coffees = [
     {id: 1, name: 'Light City', roast: 'light'},
@@ -103,5 +104,6 @@ var typename = document.querySelector('.coffee-name')
 
 tbody.innerHTML = renderCoffees(coffees); //this displays all of the coffees when the page loads
 
+//events
 dropdown.addEventListener('change', updateCoffees);
 typename.addEventListener('input', updateCoffees);

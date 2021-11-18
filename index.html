@@ -9,58 +9,70 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<!--This is the top of the page. Includes banner with Coffee! Title-->
 <header>
     <div class="jumbotron">
         <h1 class="display-4 text-center">Coffee!</h1>
     </div>
 </header>
+<!--horizontal line separate header and main-->
 <hr class="hr-line">
+<!--main area using bootstrap grid. It is a row with two columns -->
 <main>
     <div class="container">
+        <!-- This is the only row-->
         <div class="row ">
+            <!--This the first column. It renders coffees object in span.-->
             <div class="col-8 " id="coffee-align">
-                <span class ="style-coffee" id="coffees"></span>
+                <span class="style-coffee" id="coffees"></span>
             </div>
+            <!-- This is the second column it contains two forms-->
             <div class="col-4">
+                <!-- This is the first form. The user can select and search the wanted coffees-->
                 <form>
                     <div class="form-group">
-                    <label for="roast-selection">Roast</label>
-                    <select class="form-control test" id="roast-selection">
-                        <option >all</option>
-                        <option >light</option>
-                        <option >medium</option>
-                        <option >dark</option>
-                    </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="search-bar-coffee-name">Coffee Name</label>
-                        <input type="text" class="form-control coffee-name" id="search-bar-coffee-name" placeholder="Type Name">
-                    </div>
-                    <input class="btn btn-primary btn-lg btn-block" id="submit" type="submit"/>
-                </form>
-                <br>
-                <form>
-                    <h1 class="text-center font-style-georgia">Add a Coffee</h1>
-                    <div class="form-group">
+                        <!-- Dropdown for roasts -->
                         <label for="roast-selection">Roast</label>
-                        <select class="form-control add-roast" >
+                        <select class="form-control test" id="roast-selection">
+                            <option>all</option>
                             <option>light</option>
                             <option>medium</option>
                             <option>dark</option>
                         </select>
                     </div>
+                    <!-- Search bar-->
+                    <div class="form-group">
+                        <label for="search-bar-coffee-name">Coffee Name</label>
+                        <input type="text" class="form-control coffee-name" id="search-bar-coffee-name"
+                               placeholder="Type Name">
+                    </div>
+                    <!--Submit button-->
+                    <input class="btn btn-primary btn-lg btn-block" id="submit" type="submit"/>
+                </form>
+                <br>
+                <!--This is the second form. This allows users to add a new coffee-->
+                <form>
+                    <!--dropdown for roasts-->
+                    <h1 class="text-center font-style-georgia">Add a Coffee</h1>
+                    <div class="form-group">
+                        <label for="roast-selection">Roast</label>
+                        <select class="form-control add-roast">
+                            <option>light</option>
+                            <option>medium</option>
+                            <option>dark</option>
+                        </select>
+                    </div>
+                    <!--input bar-->
                     <div class="form-group">
                         <label for="new-coffee-name">Name</label>
                         <input type="text" class="form-control add-name" id="new-coffee-name" placeholder="Type Name">
                     </div>
+                    <!--submit button-->
                     <input class="btn btn-primary btn-lg btn-block submit-me" type="submit"/>
                 </form>
             </div>
-
         </div>
     </div>
-
-
 </main>
 
 
