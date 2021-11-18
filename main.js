@@ -37,14 +37,25 @@ function showcoffee (e) {
     var selectedRoast = typename.value;
     var filterCoffees = [];
     var output = selectedRoast.toLowerCase()
-    coffees.forEach(function (coffee) {
-        if ((coffee.name.toLowerCase()).indexOf(output) === 0 ) {
-            filterCoffees.push(coffee);
-        }
 
-    });
+    // coffees.forEach(function (coffee) {
+    //     if ((coffee.name.toLowerCase()).indexOf(output) === 0 ) {
+    //         filterCoffees.push(coffee);
+    //     }
+    //
+    // });
+    for (let i = 0; i < coffees.length; i++) {
+        if(coffees[i].name.toLowerCase().includes(output)) {
+            console.log(coffees[i].name);
+            filterCoffees.push(coffees[i]);
+        }
+    }
     tbody.innerHTML = renderCoffees(filterCoffees);
+
+
+
 }
+
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 var coffees = [
     {id: 1, name: 'Light City', roast: 'light'},
