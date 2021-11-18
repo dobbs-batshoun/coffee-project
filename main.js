@@ -25,21 +25,25 @@ function updateCoffees(e) {
     coffees.forEach(function (coffee) {
         if (coffee.roast === selectedRoast) {
             filteredCoffees.push(coffee);
+        }else if (selectedRoast === "all"){
+            filteredCoffees.push(coffee);
         }
     });
     tbody.innerHTML = renderCoffees(filteredCoffees);
 }
 
 function showcoffee (e) {
-    // e.preventDefault(); // don't submit the form, we just want to update the data
+    e.preventDefault(); // don't submit the form, we just want to update the data
     var selectedRoast = typename.value;
-    var filteredCoffees = [];
+    var filterCoffees = [];
+    var output = selectedRoast.toLowerCase()
     coffees.forEach(function (coffee) {
-        if (coffee.name.charAt(0) === selectedRoast.charAt(0)) {
-            filteredCoffees.push(coffee);
+        if ((coffee.name.toLowerCase()).indexOf(output) === 0 ) {
+            filterCoffees.push(coffee);
         }
+
     });
-    tbody.innerHTML = renderCoffees(filteredCoffees);
+    tbody.innerHTML = renderCoffees(filterCoffees);
 }
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 var coffees = [
