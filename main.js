@@ -63,6 +63,21 @@ function showcoffee (coffees) {
     return filterCoffees;
 }
 
+function addCoffee(e) {
+    e.preventDefault()
+    var newRoast = addRoast.value;
+    var newName = addName.value;
+    var object = {id: coffees.length, name: newName, roast: newRoast};
+    coffees.push(object);
+    coffees.sort(coffees.id)
+    tbody.innerHTML = renderCoffees(coffees);
+
+    var submitCoffee = document.querySelector('.submit-me')
+    var addRoast = document.querySelector('.add-roast');
+    var addName = document.querySelector('.add-name');
+    submitCoffee.addEventListener('click', addCoffee);
+}
+
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 var coffees = [
     {id: 1, name: 'Light City', roast: 'light'},
